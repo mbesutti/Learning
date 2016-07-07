@@ -19,8 +19,8 @@ public class PresentersFactory {
 		_file.writeLine(presenter);
 	}
 
-//	public void remove(String presenter) {
-////		_file.removeLine(presenter);
-//	}
+	public void remove(String presenter) throws IOException {
+		_file.removeLine(presenter);
+	}
 
 }

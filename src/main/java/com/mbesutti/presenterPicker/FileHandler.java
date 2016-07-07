@@ -32,4 +32,16 @@ public class FileHandler {
 		fw.append(line);
 		fw.close();
 	}
+	
+	public void removeLine(String line) throws IOException {
+		ArrayList<String> lines = getLines();
+		lines.remove(line);
+		FileWriter fw = new FileWriter(_file);
+		fw.write("");
+		fw.close();
+		for (String string : lines) {
+			writeLine(string);
+			writeLine(System.getProperty("line.separator"));
+		}
+	}
 }
