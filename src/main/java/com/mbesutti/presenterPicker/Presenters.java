@@ -3,24 +3,23 @@ package com.mbesutti.presenterPicker;
 import java.io.IOException;
 import java.util.List;
 
-public class PresentersFactory {
+public class Presenters {
 
-	private final FileHandler _file;
+	private final Store _store;
 
-	public PresentersFactory() {
-		_file = new FileHandler("presenters.txt");
+	public Presenters() {
+		_store = new Store("presenters.txt");
 	}
 
 	public List<String> all() throws IOException {
-		return _file.getLines();
+		return _store.getLines();
 	}
 
 	public void add(String presenter) throws IOException {
-		_file.writeLine(presenter);
+		_store.writeLine(presenter);
 	}
 
 	public void remove(String presenter) throws IOException {
-		_file.removeLine(presenter);
+		_store.removeLine(presenter);
 	}
-
 }

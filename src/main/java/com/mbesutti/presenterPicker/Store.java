@@ -8,10 +8,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class FileHandler {
+public class Store {
 	private final File _file;
 
-	public FileHandler(String path) {
+	public Store(String path) {
 		_file = new File(path);
 	}
 	
@@ -30,6 +30,7 @@ public class FileHandler {
 	public void writeLine(String line) throws IOException {
 		FileWriter fw = new FileWriter(_file, true);
 		fw.append(line);
+		fw.append(System.getProperty("line.separator"));
 		fw.close();
 	}
 	
@@ -41,7 +42,6 @@ public class FileHandler {
 		fw.close();
 		for (String string : lines) {
 			writeLine(string);
-			writeLine(System.getProperty("line.separator"));
 		}
 	}
 }

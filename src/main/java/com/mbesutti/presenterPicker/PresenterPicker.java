@@ -2,38 +2,32 @@ package com.mbesutti.presenterPicker;
 
 import java.io.IOException;
 
-public class App 
-{
-    public static void main( String[] args ) throws IOException {
-    	PresentersFactory presentersFactory = new PresentersFactory();
-    	if (args.length == 0) {
-	    	String presenter = Picker.pickFrom(presentersFactory.all());
-	    	System.out.println("Presenter: "+presenter);
-	    	return;
-    	}
-    	
-    	for (String parameter : args) {
-    		if (parameter.equals("help")) {
-        		StringBuilder help = new StringBuilder();
-        		help.append("Possible arguments:");
-        		help.append("\n<no arguments> -> get random presenter");
-        		help.append("\nadd:<name>");
-    			help.append("\nremove:<name>");
-    			help.append("\nlist");
-        		System.out.println(help.toString());
-        	}
-    		else if (parameter.contains("add")) {
-				presentersFactory.add(ValueRetriever.fromArgument(parameter, ":"));
-    		}
-    		else if (parameter.contains("remove")) {
-    			presentersFactory.remove(ValueRetriever.fromArgument(parameter, ":"));
-    		}
-    		else if (parameter.contains("list")) {
-    			System.out.println("Presenters:");
-    			for (String presenter : presentersFactory.all()) {
-					System.out.println("- "+presenter);
-				}
-    		}
+public class PresenterPicker {
+	public static void main(String[] arguments) throws IOException {
+		Args args = new Args(arguments);
+		Presenters repository = new Presenters();
+		if (args.empty()) {
+			String presenter = Picker.pickFrom(repository.all());
+			System.out.println("Presenter: " + presenter);
+			return;
 		}
-    }
+		if (args.on("help")) {
+			StringBuilder help = new StringBuilder();
+			help.append("Possible arguments:");
+			help.append("\n<no arguments> -> get random presenter");
+			help.append("\nadd:<name>");
+			help.append("\nremove:<name>");
+			help.append("\nlist");
+			System.out.println(help.toString());
+		} else if (args.on("add")) {
+			repository.add(args.value());
+		} else if (args.on("remove")) {
+			repository.remove(args.value());
+		} else if (args.on("list")) {
+			System.out.println("Presenters:");
+			for (String presenter : repository.all()) {
+				System.out.println("- " + presenter);
+			}
+		}
+	}
 }
