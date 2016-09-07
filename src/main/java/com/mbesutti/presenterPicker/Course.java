@@ -3,11 +3,11 @@ package com.mbesutti.presenterPicker;
 import java.io.IOException;
 import java.util.List;
 
-public class Presenters {
+public class Course {
 
 	private final Store _store;
 
-	public Presenters() {
+	public Course() {
 		_store = new Store("presenters.txt");
 	}
 
@@ -22,4 +22,21 @@ public class Presenters {
 	public void remove(String presenter) throws IOException {
 		_store.removeLine(presenter);
 	}
+
+	public String getName() {
+		return "GMTech class";
+	}
+	
+	public String getDescription() {
+		return "Un corso figo";
+	}
+
+	public String getLocation() {
+		return "Mendrisio";
+	}
+
+	public int getRemainingSeats() {
+		return 0;
+	}
+
 }
