@@ -40,11 +40,12 @@ public class PresenterPicker {
 			Course otherCourse = new Course(args.value());
 			PresenterPicker.printAsList(otherCourse);
 		} else if (args.on("history")) {
-			PresenterPicker.printHistory(Course.history());
+			PresenterPicker.printHistory();
 		}
 	}
 	
-	private static void printHistory(List<String> history) {
+	private static void printHistory() {
+		List<String> history = Course.history();
 		System.out.println("History:");
 		for (String string : history) {
 			System.out.println(string);
