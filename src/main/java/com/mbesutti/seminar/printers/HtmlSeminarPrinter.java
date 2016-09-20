@@ -13,6 +13,7 @@ public class HtmlSeminarPrinter implements SeminarPrinter {
 		ArrayList<String> bodyContent = new ArrayList<String>();
 		bodyContent.addAll(HtmlTag.div(seminar.course.name));
 		ArrayList<String> courseInfo = new ArrayList<String>();
+		courseInfo.addAll(HtmlTag.li(seminar.course.date));
 		courseInfo.addAll(HtmlTag.li(seminar.course.description));
 		courseInfo.addAll(HtmlTag.li(seminar.location));
 		courseInfo.addAll(HtmlTag.li(String.valueOf(seminar.getSeatsLeft())));

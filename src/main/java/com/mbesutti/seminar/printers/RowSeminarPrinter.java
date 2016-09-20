@@ -10,6 +10,7 @@ public class RowSeminarPrinter implements SeminarPrinter {
 	public String print(Seminar seminar) {
 		ArrayList<String> lines = new ArrayList<String>();
 		lines.add("Course: "+seminar.course.name);
+		lines.add("Date: "+seminar.course.date);
 		lines.add("Description: "+seminar.course.description);
 		lines.add("Location: "+seminar.location);
 		lines.add("Remaining seats: "+seminar.getSeatsLeft());

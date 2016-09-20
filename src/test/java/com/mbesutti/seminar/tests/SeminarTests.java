@@ -17,6 +17,7 @@ public class SeminarTests {
 		SeminarPrinter htmlPrinter = new RowSeminarPrinter();
 		Course course = new Course();
 		course.name = "Corso 1";
+		course.date = "15.01.2016";
 		course.description = "Descrizione 1";
 		Seminar seminar = new Seminar(course);
 		seminar.location = "Sala 1";
@@ -31,6 +32,7 @@ public class SeminarTests {
 		seminar.enrollments.add(new Enrollment(student2));
 		
 		Assert.assertEquals("Course: Corso 1\n"
+								+"Date: 15.01.2016\n"
 								+"Description: Descrizione 1\n"
 								+"Location: Sala 1\n"
 								+"Remaining seats: 0\n"
@@ -44,6 +46,7 @@ public class SeminarTests {
 		SeminarPrinter htmlPrinter = new HtmlSeminarPrinter();
 		Course course = new Course();
 		course.name = "Corso 1";
+		course.date = "15.01.2016";
 		course.description = "Descrizione 1";
 		Seminar seminar = new Seminar(course);
 		seminar.location = "Sala 1";
@@ -63,6 +66,7 @@ public class SeminarTests {
 									+"<body>\n"
 									+"	<li>Corso 1</li>\n"
 									+"	<ul>\n"
+									+"		<li>15.01.2016</li>\n"
 									+"		<li>Descrizione 1</li>\n"
 									+"		<li>Sala 1</li>\n"
 									+"		<li>0</li>\n"
