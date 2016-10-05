@@ -1,10 +1,10 @@
-package com.mbesutti.refactoring;
+package com.mbesutti.movieRental;
 
 import java.util.Enumeration;
 import java.util.Vector;
 
-import com.mbesutti.refactoring.statement.HtmlStatement;
-import com.mbesutti.refactoring.statement.TextStatement;
+import com.mbesutti.movieRental.statement.HtmlStatement;
+import com.mbesutti.movieRental.statement.TextStatement;
 
 public class Customer {
 	private final String _name;

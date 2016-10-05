@@ -4,12 +4,12 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
-import com.mbesutti.refactoring.ChildrensPrice;
-import com.mbesutti.refactoring.Customer;
-import com.mbesutti.refactoring.Movie;
-import com.mbesutti.refactoring.NewReleasePrice;
-import com.mbesutti.refactoring.RegularPrice;
-import com.mbesutti.refactoring.Rental;
+import com.mbesutti.movieRental.ChildrensPrice;
+import com.mbesutti.movieRental.Customer;
+import com.mbesutti.movieRental.Movie;
+import com.mbesutti.movieRental.NewReleasePrice;
+import com.mbesutti.movieRental.RegularPrice;
+import com.mbesutti.movieRental.Rental;
 
 public class RentalTests {
 	@Test

@@ -1,4 +1,4 @@
-package com.mbesutti.refactoring;
+package com.mbesutti.movieRental;
 
 public class NewReleasePrice extends Price {
 	@Override

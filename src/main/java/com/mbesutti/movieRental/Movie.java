@@ -1,4 +1,4 @@
-package com.mbesutti.refactoring;
+package com.mbesutti.movieRental;
 
 public class Movie {
 	public static final int CHILDRENS = 2;

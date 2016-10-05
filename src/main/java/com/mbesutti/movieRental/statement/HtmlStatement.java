@@ -1,7 +1,8 @@
-package com.mbesutti.refactoring.statement;
+package com.mbesutti.movieRental.statement;
 
-import com.mbesutti.refactoring.Customer;
-import com.mbesutti.refactoring.Rental;
+import com.mbesutti.movieRental.Customer;
+import com.mbesutti.movieRental.Rental;
+
 
 public class HtmlStatement extends Statement {
 

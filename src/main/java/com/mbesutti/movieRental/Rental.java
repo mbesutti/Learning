@@ -1,4 +1,4 @@
-package com.mbesutti.refactoring;
+package com.mbesutti.movieRental;
 
 public class Rental {
 	private final Movie _movie;

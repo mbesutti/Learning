@@ -1,4 +1,4 @@
-package com.mbesutti.refactoring;
+package com.mbesutti.movieRental;
 
 
 abstract class Price {
