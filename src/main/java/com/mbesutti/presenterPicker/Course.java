@@ -1,21 +1,25 @@
 package com.mbesutti.presenterPicker;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Course {
 
 	private final Store _store;
+	private final Store _absents;
 
 	public Course() throws IOException {
 		_store = new Store("presenters");
 		if (_store.isEmpty()) {
 			prefill();
 		}
+		_absents = new Store("absents");
 	}
 
 	public Course(String date) {
 		_store = new Store("presenters", date);
+		_absents = new Store("absents", date);
 	}
 	
 	public static List<String> history(){
@@ -26,12 +30,26 @@ public class Course {
 		return _store.getLines();
 	}
 
-	public void add(String presenter) throws IOException {
-		_store.writeLine(presenter);
+	public List<String> absents() throws IOException {
+		if (_absents==null) {
+			ArrayList<String> emptyList = new ArrayList<String>();
+			emptyList.add("none");
+			return emptyList;
+		}
+		return _absents.getLines();
 	}
 
-	public void remove(String presenter) throws IOException {
-		_store.removeLine(presenter);
+	public void add(String[] presenters) throws IOException {
+		for (String presenter : presenters) {
+			_store.writeLine(presenter);
+		}
+	}
+
+	public void remove(String[] presenters) throws IOException {
+		for (String presenter : presenters) {
+			_store.removeLine(presenter);
+			_absents.writeLine(presenter);
+		}
 	}
 
 	public String getName() {
@@ -51,21 +69,8 @@ public class Course {
 	}
 
 	private void prefill() throws IOException {
-		add("manlio");
-		add("franco");
-		add("ale");
-		add("dario");
-		add("enrico");
-		add("mattia");
-		add("chicco");
-		add("pino");
-		add("gennaro");
-		add("massi");
-		add("vacca");
-		add("gabri");
-		add("stefano");
-		add("matteo");
-		add("valentino");
+		String[] presenters = {"manlio", "franco", "ale", "dario", "enrico", "mattia", "chicco", "pino", "gennaro", "massi", "vacca", "gabri", "stefano", "matteo", "valentino"};
+		add(presenters);
 	}
 
 }

@@ -18,32 +18,41 @@ public class PresenterPicker {
 			StringBuilder help = new StringBuilder();
 			help.append("Possible arguments:");
 			help.append("\n<no arguments> -> get random presenter");
-			help.append("\nadd:<name>");
-			help.append("\nremove:<name>");
+			help.append("\nadd <name> <name> ...");
+			help.append("\nremove <name> <name> ...");
 			help.append("\nlist");
 			help.append("\nhistory");
-			help.append("\ndate:<yyyy.MM.dd> -> list");
+			help.append("\ndate <yyyy.MM.dd> -> list");
 			help.append("\nhtml");
 			help.append("\ncsv");
 			System.out.println(help.toString());
 		} else if (args.on("add")) {
-			course.add(args.value());
+			course.add(args.allValues());
 		} else if (args.on("remove")) {
-			course.remove(args.value());
+			course.remove(args.allValues());
 		} else if (args.on("list")) {
 			PresenterPicker.printAsList(course);
+		} else if (args.on("absents")) {
+			PresenterPicker.printAbsents(course);
 		} else if (args.on("html")) {
 			PresenterPicker.printAsHtml(course);
 		} else if (args.on("csv")) {
 			PresenterPicker.printAsCsv(course);
 		} else if (args.on("date")) {
-			Course otherCourse = new Course(args.value());
+			Course otherCourse = new Course(args.firstValue());
 			PresenterPicker.printAsList(otherCourse);
 		} else if (args.on("history")) {
 			PresenterPicker.printHistory();
 		}
 	}
 	
+	private static void printAbsents(Course course) throws IOException {
+		System.out.println("Absents:");
+		for (String presenter : course.absents()) {
+			System.out.println("- " + presenter);
+		}
+	}
+
 	private static void printHistory() {
 		List<String> history = Course.history();
 		System.out.println("History:");

@@ -1,5 +1,7 @@
 package com.mbesutti.presenterPicker;
 
+import java.util.Arrays;
+
 public class Args {
 	private static final String SEPARATOR = ":";
 	private final String[] _args;
@@ -11,10 +13,20 @@ public class Args {
 	private String getParameter() {
 		return _args[0];
 	}
+	
+	private String[] getParameters() {
+		return _args;
+	}
 
-	public String value() {
-		String parameter = getParameter();
-		return parameter.substring(parameter.indexOf(SEPARATOR)+1, parameter.length());
+	public String firstValue() {
+		String[] parameter = getParameters();
+		return parameter[1];
+	}
+	
+	public String[] allValues() {
+		String[] parameters = getParameters();
+		String[] values = Arrays.copyOfRange(parameters, 1, parameters.length);
+		return values;
 	}
 
 	public boolean on(String command) {
