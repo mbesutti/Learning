@@ -7,7 +7,7 @@ import org.junit.Test;
 public class EmployeeTest {
 	@Test
 	public void testName() {
-		Employee employee = new Employee(2);
+		Employee employee = Employee.create(Employee.MANAGER);
 		assertEquals(Employee.MANAGER, employee.getType());
 	}
 }

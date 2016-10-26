@@ -7,7 +7,7 @@ import org.junit.Test;
 public class EmployeeTest {
 	@Test
 	public void managerSalary() {
-		Employee employee = new Employee(2);
+		Employee employee = new Employee(Employee.MANAGER);
 		assertEquals(2500, employee.payAmount());
 	}
 }

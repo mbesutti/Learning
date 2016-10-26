@@ -3,22 +3,22 @@ package com.mbesutti.refactorings.replaceDataValueWithObject;
 import java.util.List;
 
 public class Order {
-    public Order (String customer) {
+    public Order (Customer customer) {
         _customer = customer;
     }
-    public String getCustomerName() {
+    public Customer getCustomer() {
         return _customer;
     }
-    public void setCustomer(String arg) {
-        _customer = arg;
+    public void setCustomer(Customer customer) {
+        _customer = customer;
     }
-	public static int numberOfOrdersFor(List<Order> orders, String customer) {
+	public static int numberOfOrdersFor(List<Order> orders, Customer customer) {
 		int result = 0;
 		for (Order order : orders) {
-			if (order.getCustomerName().equals(customer))
+			if (order.getCustomer().getName().equals(customer.getName()))
 				result++;
 		}
 		return result;
 	}
-    private String _customer;
+    private Customer _customer;
 }

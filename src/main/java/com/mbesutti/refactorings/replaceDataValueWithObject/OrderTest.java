@@ -11,9 +11,9 @@ public class OrderTest {
 	@Test
 	public void testName() {
 		List<Order> orders = new ArrayList<Order>();
-		orders.add(new Order("marco"));
-		orders.add(new Order("marco"));
-		orders.add(new Order("giulia"));
-		assertEquals(2, Order.numberOfOrdersFor(orders, "marco"));
+		orders.add(new Order(new Customer("marco")));
+		orders.add(new Order(new Customer("marco")));
+		orders.add(new Order(new Customer("giulia")));
+		assertEquals(2, Order.numberOfOrdersFor(orders, new Customer("marco")));
 	}
 }

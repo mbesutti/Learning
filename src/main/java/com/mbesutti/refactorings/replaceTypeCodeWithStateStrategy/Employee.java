@@ -1,7 +1,7 @@
 package com.mbesutti.refactorings.replaceTypeCodeWithStateStrategy;
 
 public class Employee {
-	private final int _type;
+	private EmployeeType _type;
 	private final int _monthlySalary = 2000;
 	private final int _commission = 100;
 	private final int _bonus = 500;
@@ -10,11 +10,31 @@ public class Employee {
 	static final int MANAGER = 2;
 
 	Employee(int type) {
-		_type = type;
+		setType(type);
+	}
+	
+	public int getType() {
+		return _type.getTypeCode();
+	}
+
+	void setType(int type) {
+		switch (type) {
+		case ENGINEER:
+			_type = new Engineer();
+			break;
+		case SALESMAN:
+			_type = new Salesman();
+			break;
+		case MANAGER:
+			_type = new Manager();
+			break;
+		default:
+			throw new IllegalArgumentException("Incorrect EmployeeCode");
+		}
 	}
 
 	int payAmount() {
-		switch (_type) {
+		switch (getType()) {
 		case ENGINEER:
 			return _monthlySalary;
 		case SALESMAN:

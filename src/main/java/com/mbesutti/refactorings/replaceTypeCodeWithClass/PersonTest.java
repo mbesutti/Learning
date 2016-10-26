@@ -7,7 +7,7 @@ import org.junit.Test;
 public class PersonTest {
 	@Test
 	public void testName() {
-		Person person = new Person(3);
-		assertEquals(Person.AB, person.getBloodGroup());
+		Person person = new Person(BloodGroup.AB);
+		assertEquals(BloodGroup.AB, person.getBloodGroup());
 	}
 }
