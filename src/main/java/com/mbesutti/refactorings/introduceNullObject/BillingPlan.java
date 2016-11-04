@@ -6,4 +6,8 @@ public class BillingPlan {
 		return new BillingPlan();
 	}
 
+	public static BillingPlan special() {
+		return new BillingPlan();
+	}
+
 }

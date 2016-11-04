@@ -6,4 +6,6 @@ public abstract class EmployeeType {
 	public static final int MANAGER = 2;
 
 	abstract int getTypeCode();
+
+	abstract int payAmount(Employee employee);
 }

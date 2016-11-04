@@ -6,26 +6,29 @@ public class Person {
 	}
 
 	public String getTelephoneNumber() {
-		return ("(" + _officeAreaCode + ") " + _officeNumber);
+		return _officeTelephone.getTelephoneNumber();
 	}
 
-	String getOfficeAreaCode() {
-		return _officeAreaCode;
+	TelephoneNumber getOfficeTelephone() {
+		return _officeTelephone;
 	}
 
-	void setOfficeAreaCode(String arg) {
-		_officeAreaCode = arg;
+	String getAreaCode() {
+		return _officeTelephone.getAreaCode();
 	}
 
-	String getOfficeNumber() {
-		return _officeNumber;
+	void setAreaCode(String arg) {
+		_officeTelephone.setAreaCode(arg);
 	}
 
-	void setOfficeNumber(String arg) {
-		_officeNumber = arg;
+	String getNumber() {
+		return _officeTelephone.getNumber();
+	}
+
+	void setNumber(String arg) {
+		_officeTelephone.setNumber(arg);
 	}
 
 	private String _name;
-	private String _officeAreaCode;
-	private String _officeNumber;
+	private TelephoneNumber _officeTelephone = new TelephoneNumber();
 }
