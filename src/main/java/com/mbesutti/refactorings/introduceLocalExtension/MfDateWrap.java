@@ -13,7 +13,7 @@ public class MfDateWrap {
 		_original = arg;
 	}
 	
-	// no argument is needed, delegating methods called
+	// non servono argomenti, vengono chiamati metodi per la delega
     public Date nextDay() {
         return new Date (getYear(), getMonth(), getDate() + 1);
     }

@@ -4,7 +4,7 @@ public class Employee {
 	private void aMethod(){
 		
 	}
-	// the method was only used within this class
+	// metodo usato solo in questa classe e non all'esterno
 //	public void aMethod(){
 //		
 //	}

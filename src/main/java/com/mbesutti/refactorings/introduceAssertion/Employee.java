@@ -9,7 +9,7 @@ public class Employee {
 
 	double getExpenseLimit() {
 		// + assicuro che almeno una condizione sia vera
-		// ? Assert.ON ??
+		// ? Assert.ON (p.219) ??
 		Assert.assertTrue (_expenseLimit != NULL_EXPENSE || _primaryProject	!= null);
 		// ----
 		return (_expenseLimit != NULL_EXPENSE) ? _expenseLimit
