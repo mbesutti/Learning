@@ -2,7 +2,7 @@ package com.mbesutti.seminarweb.seminar;
 
 import java.util.ArrayList;
 
-import com.mbesutti.seminarweb.SeminarPrinter;
+import com.mbesutti.seminarweb.printers.SeminarPrinter;
 
 public class Seminar {
 	private String location;

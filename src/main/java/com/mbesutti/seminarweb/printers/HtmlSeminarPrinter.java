@@ -1,4 +1,4 @@
-package com.mbesutti.seminarweb;
+package com.mbesutti.seminarweb.printers;
 
 import java.util.ArrayList;
 
