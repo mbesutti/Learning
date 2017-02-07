@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mbesutti.seminar.Enrollment;
+import com.mbesutti.seminarweb.html.HtmlForm;
+import com.mbesutti.seminarweb.html.HtmlPageBuilder;
 import com.mbesutti.seminarweb.printers.CsvSeminarPrinter;
 import com.mbesutti.seminarweb.printers.HtmlSeminarPrinter;
 import com.mbesutti.seminarweb.printers.RawSeminarPrinter;
@@ -52,6 +55,20 @@ public class Servlet extends HttpServlet {
 		    {
 		        System.out.println(e.toString());
 		    }
+		}
+		if(req.getRequestURI().equals("/course/create")){
+			HtmlPageBuilder builder = new HtmlPageBuilder(); 
+			HtmlForm form = new HtmlForm();
+			form.addInput("Name", HtmlForm.TEXT, "Course name");
+			form.addInput("Date", HtmlForm.TEXT, "15.01.2016");
+			form.addInput("Description", HtmlForm.TEXT, "Description");
+			form.addInput("Location", HtmlForm.TEXT, "Location");
+			form.addInput("Seats", HtmlForm.TEXT, "Total seats available");
+			
+			builder.add(form);
+			resp.getWriter().write(
+			    builder.build("Create course")
+		    );
 		}
 	}
 }
