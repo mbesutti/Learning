@@ -33,8 +33,8 @@ public class Seminar {
 		return students;
 	}
 	
-	public void print(SeminarPrinter printer) {
-		printer.print(this);
+	public String print(SeminarPrinter printer) {
+		return printer.print(this);
 	}
 	
 	public Course getCourse(){

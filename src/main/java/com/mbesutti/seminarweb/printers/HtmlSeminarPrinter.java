@@ -17,13 +17,13 @@ public class HtmlSeminarPrinter implements SeminarPrinter {
 		courseInfo.addAll(HtmlTag.li(seminar.getCourse().getDescription()));
 		courseInfo.addAll(HtmlTag.li(seminar.getLocation()));
 		courseInfo.addAll(HtmlTag.li(String.valueOf(seminar.getSeatsLeft())));
-		bodyContent.addAll(HtmlTag.ul(courseInfo));
-		bodyContent.addAll(HtmlTag.div("Partecipants"));
+		courseInfo.addAll(HtmlTag.div("Partecipants"));
 		ArrayList<String> partecipantList = new ArrayList<String>();
 		for (Student student : seminar.getStudentsList()) {
 			partecipantList.addAll(HtmlTag.li(student.getFullName()));
 		}
-		bodyContent.addAll(HtmlTag.ul(partecipantList));
+		courseInfo.addAll(HtmlTag.ul(partecipantList));
+		bodyContent.addAll(HtmlTag.ul(courseInfo));
 		ArrayList<String> body = HtmlTag.body(bodyContent);
 		
 		lines.addAll(head);

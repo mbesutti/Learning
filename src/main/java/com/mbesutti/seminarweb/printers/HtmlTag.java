@@ -1,6 +1,7 @@
 package com.mbesutti.seminarweb.printers;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class HtmlTag {
 	public static ArrayList<String> html(ArrayList<String> content) {
@@ -49,5 +50,9 @@ public class HtmlTag {
 		}
 		result.add("</" + name + ">");
 		return result;
+	}
+
+	public static ArrayList<String> h2(String value) {
+		return tag("h2", value);
 	}
 }
