@@ -8,7 +8,7 @@ public class HtmlNotFound implements HtmlElement {
 	
 	Map<String, String> _redirects = new HashMap<String, String>();
 	
-	public void addRedirect(String value, String url){
+	public void addRedirectLink(String value, String url){
 		_redirects.put(value, url);
 	}
 
