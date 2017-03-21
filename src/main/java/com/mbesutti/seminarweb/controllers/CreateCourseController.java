@@ -30,7 +30,7 @@ public class CreateCourseController implements Controller {
 		form.addInput("Date", HtmlForm.TEXT, _addCourseRequestData==null?"15.01.2016":_addCourseRequestData.getDate(), _errors.get("date"));
 		form.addInput("Description", HtmlForm.TEXT, _addCourseRequestData==null?"Description":_addCourseRequestData.getDescription(), _errors.get("description"));
 		form.addInput("Location", HtmlForm.TEXT, _addCourseRequestData==null?"Location":_addCourseRequestData.getLocation(), _errors.get("location"));
-		form.addInput("Seats", HtmlForm.TEXT, _addCourseRequestData==null?"Total seats available":_addCourseRequestData.getSeats(), _errors.get("seats"));
+		form.addInput("Seats", HtmlForm.TEXT, _addCourseRequestData==null?"0":_addCourseRequestData.getSeats(), _errors.get("seats"));
 		form.addInput("Partecipants", HtmlForm.TEXT, _addCourseRequestData==null?"Partecipants (separated by comma)":_addCourseRequestData.getPartecipants(), _errors.get("partecipants"));
 		form.addSubmit("Create");
 		

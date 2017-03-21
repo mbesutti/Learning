@@ -6,11 +6,19 @@ public class PositiveRule implements Rule{
 
 	@Override
 	public boolean validate(String key, String value, Map<String, String> errors) {
-//		if (value == null || value.isEmpty()){
-//			return false;
-//		}
+		if (value == null || value.isEmpty()){
+			return false;
+		}
 		
-		if (value != null && !value.isEmpty() && Integer.parseInt(value)>=0){
+		int num;
+		try{
+			num = Integer.parseInt(value);
+		}
+		catch(Exception e){
+			return false;
+		}
+		
+		if (num>=0){
 			return true;
 		}
 				

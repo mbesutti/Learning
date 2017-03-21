@@ -30,11 +30,10 @@ public class AddCourseRequestData {
 		new NotEmptyRule().validate("location", location, errors);
 
 		new MultiRule().add(new NotEmptyRule())
-					         .add(new PositiveRule())
-					         .add(new MaxLengthRule(3))
-					         .add(new MaxNumRule(100))
+				         .add(new PositiveRule())
+				         .add(new MaxNumRule(100))
 				.validate("seats", seats, errors);
-		
+
 		new DateFormatRule().validate("date", date, errors);
 		
 		return errors;

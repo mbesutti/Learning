@@ -11,7 +11,20 @@ public class MaxNumRule implements Rule {
 
 	@Override
 	public boolean validate(String key, String value, Map<String, String> errors) {
-		int num = Integer.parseInt(value);
+		if (value == null || value.isEmpty()){
+			return false;
+		}
+		
+		int num;
+		try{
+			System.out.println("before a");
+			num = Integer.parseInt(value);
+		}
+		catch(Exception e){
+			System.out.println("after a");
+			return false;
+		}
+
 		if (num<=_max){
 			return true;
 		}

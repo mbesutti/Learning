@@ -11,19 +11,21 @@ public class MultiRule implements Rule{
 
 	@Override
 	public boolean validate(String key, String value, Map<String, String> errors) {
-		Map<String, String> ruleError = new HashMap<>();
 		int i = 0;
 		String errorsValues = "";
+		boolean isValid = false;
 		for (Rule rule : rules) {
+			Map<String, String> ruleError = new HashMap<>();
 			boolean valid = rule.validate(key, value, ruleError);
-			if (!valid){
+			if (!valid && !ruleError.isEmpty()){
 				String separator = i==0?"":", ";
 				errorsValues += separator + ruleError.get(key);
 				i++;
 			}
+			isValid &= valid;
 		}
 		if (errorsValues.isEmpty()){
-			return true;
+			return isValid;
 		}
 		errors.put(key, errorsValues);
 		return false;
