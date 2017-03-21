@@ -2,26 +2,19 @@ package com.mbesutti.seminarweb.validation;
 
 import java.util.Map;
 
-public class PositiveRule {
+public class PositiveRule implements Rule{
 
-	private final String _key;
-	private final Map<String, String> _errors;
-
-	public PositiveRule(String key, Map<String, String> errors) {
-		_key = key;
-		_errors = errors;
-	}
-
-	public boolean validate(String value) {
-		if (value == null || value.isEmpty()){
-			return false;
-		}
+	@Override
+	public boolean validate(String key, String value, Map<String, String> errors) {
+//		if (value == null || value.isEmpty()){
+//			return false;
+//		}
 		
-		if (Integer.parseInt(value)>0){
+		if (value != null && !value.isEmpty() && Integer.parseInt(value)>=0){
 			return true;
 		}
 				
-		_errors.put(_key, _key + " must be positive");
+		errors.put(key, key + " must be positive");
 		return false;
 	}
 

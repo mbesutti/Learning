@@ -23,7 +23,7 @@ public class HtmlForm implements HtmlElement {
 						"<div class='col-sm-10'>" +
 							"<input type='" + type + "' class='form-control' id='"+label+
 								"' name='"+label.toLowerCase()+"' placeholder='"+placeholder+"' value='"+placeholder+"'>"+
-							"<div class='col-xs-5 messageContainer'>"+errorMessage+"</div>" +
+							"<div class='col-xs-12 messageContainer'>"+errorMessage+"</div>" +
 						"</div>" +
 					"</div>");
 	}

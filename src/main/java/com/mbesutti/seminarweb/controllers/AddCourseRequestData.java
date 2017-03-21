@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.mbesutti.seminarweb.validation.DateFormatRule;
+import com.mbesutti.seminarweb.validation.MaxLengthRule;
+import com.mbesutti.seminarweb.validation.MaxNumRule;
+import com.mbesutti.seminarweb.validation.MultiRule;
 import com.mbesutti.seminarweb.validation.NotEmptyRule;
 import com.mbesutti.seminarweb.validation.PositiveRule;
 
@@ -18,14 +21,21 @@ public class AddCourseRequestData {
 	public Map<String,String> validate(){
 		Map<String,String> errors = new HashMap<>();
 		
-		new NotEmptyRule("name", errors).validate(name);
-		new NotEmptyRule("start", errors).validate(date);
-		new NotEmptyRule("location", errors).validate(location);
-		new NotEmptyRule("seats", errors).validate(seats);
+		new MultiRule().add(new NotEmptyRule())
+					   .add(new MaxLengthRule(15))
+				.validate("name", name, errors);
+		new MultiRule().add(new NotEmptyRule())
+					   .add(new MaxLengthRule(20))
+				.validate("start", date, errors);
+		new NotEmptyRule().validate("location", location, errors);
+
+		new MultiRule().add(new NotEmptyRule())
+					         .add(new PositiveRule())
+					         .add(new MaxLengthRule(3))
+					         .add(new MaxNumRule(100))
+				.validate("seats", seats, errors);
 		
-		new PositiveRule("seats", errors).validate(seats);
-		
-		new DateFormatRule("date", errors).validate(date);
+		new DateFormatRule().validate("date", date, errors);
 		
 		return errors;
 	}

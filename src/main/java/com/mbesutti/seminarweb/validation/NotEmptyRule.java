@@ -2,21 +2,14 @@ package com.mbesutti.seminarweb.validation;
 
 import java.util.Map;
 
-public class NotEmptyRule {
+public class NotEmptyRule implements Rule{
 
-	private final String _key;
-	private final Map<String, String> _errors;
-
-	public NotEmptyRule(String key, Map<String, String> errors) {
-		_key = key;
-		_errors = errors;
-	}
-
-	public boolean validate(String value) {
+	@Override
+	public boolean validate(String key, String value, Map<String, String> errors) {
 		if (value != null && !value.isEmpty()){
 			return true;
 		}
-		_errors.put(_key, "Provide a valid " + _key + "!");
+		errors.put(key, "Provide a value for " + key);
 		return false;
 	}
 

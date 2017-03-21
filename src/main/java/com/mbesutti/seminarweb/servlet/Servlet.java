@@ -52,7 +52,6 @@ public class Servlet extends HttpServlet {
 					.setLocation(req.getParameter("location"))
 					.setPartecipants(req.getParameter("partecipants"));
 			Map<String, String> errors = addCourseRequestData.validate();
-			System.out.println("errors: "+!errors.isEmpty());
 			if (!errors.isEmpty()){
 				CreateCourseController createCourseController = new CreateCourseController(addCourseRequestData, errors);
 				resp.getWriter().write(createCourseController.build());

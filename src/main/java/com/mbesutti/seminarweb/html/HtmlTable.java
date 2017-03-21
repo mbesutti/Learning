@@ -6,10 +6,10 @@ import java.util.List;
 public class HtmlTable implements HtmlElement{
 
 	private String[] _columns;
-	private List<String[]> _rows;
+	private final List<String[]> _rows;
 	
 	public HtmlTable() {
-		_rows = new ArrayList<String[]>();
+		_rows = new ArrayList<>();
 	}
 	
 	public void setHeaders(String... columns) {
@@ -20,6 +20,7 @@ public class HtmlTable implements HtmlElement{
 		_rows.add(row);
 	}
 
+	@Override
 	public String build() {
 		String string = "<table class=\"table\">"+
 						"<thead>"+
@@ -38,6 +39,7 @@ public class HtmlTable implements HtmlElement{
 			string += "</tr>";
 		}
 		string += "</tbody>";
+		string += "</table>";
 		return string;
 	}
 

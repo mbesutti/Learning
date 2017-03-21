@@ -17,7 +17,7 @@ public class AddCourseController implements Controller {
 
 	@Override
 	public String build() {
-		Integer seats = Integer.getInteger(_addCourseRequestData.getSeats());
+		Integer seats = Integer.parseInt(_addCourseRequestData.getSeats());
 		Course course = new Course(1, _addCourseRequestData.getName(), _addCourseRequestData.getDescription(), _addCourseRequestData.getDate());
 		Seminar seminar = new Seminar(course, seats, _addCourseRequestData.getLocation());
 		for (String person : _addCourseRequestData.getPartecipants().split(",")) {
