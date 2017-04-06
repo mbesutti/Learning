@@ -6,7 +6,7 @@ public class HtmlForm implements HtmlElement {
 	public static final String TEXT = "text";
 	public static final String SUBMIT = "submit";
 	
-	ArrayList<String> inputs = new ArrayList<>();
+	ArrayList<String> inputs = new ArrayList<String>();
 	private final String _destination;
 	
 	public HtmlForm(String destination) {

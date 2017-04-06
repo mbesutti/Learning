@@ -14,7 +14,7 @@ public class ValidationsTest {
 	
 	@Before
 	public void before(){
-		_errors = new HashMap<>();
+		_errors = new HashMap<String,String>();
 	}
 	
 	@Test

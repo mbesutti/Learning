@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class MultiRule implements Rule{
 	
-	List<Rule> rules = new ArrayList<>();
+	List<Rule> rules = new ArrayList<Rule>();
 
 	@Override
 	public boolean validate(String key, String value, Map<String, String> errors) {
@@ -15,7 +15,7 @@ public class MultiRule implements Rule{
 		String errorsValues = "";
 		boolean isValid = false;
 		for (Rule rule : rules) {
-			Map<String, String> ruleError = new HashMap<>();
+			Map<String, String> ruleError = new HashMap<String,String>();
 			boolean valid = rule.validate(key, value, ruleError);
 			if (!valid && !ruleError.isEmpty()){
 				String separator = i==0?"":", ";

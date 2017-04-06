@@ -19,7 +19,7 @@ public class AddCourseRequestData {
 	private String partecipants;
 	
 	public Map<String,String> validate(){
-		Map<String,String> errors = new HashMap<>();
+		Map<String,String> errors = new HashMap<String,String>();
 		
 		new MultiRule().add(new NotEmptyRule())
 					   .add(new MaxLengthRule(15))

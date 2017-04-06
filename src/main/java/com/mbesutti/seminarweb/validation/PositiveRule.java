@@ -7,6 +7,7 @@ public class PositiveRule implements Rule{
 	@Override
 	public boolean validate(String key, String value, Map<String, String> errors) {
 		if (value == null || value.isEmpty()){
+			addError(key, errors);
 			return false;
 		}
 		
@@ -15,6 +16,7 @@ public class PositiveRule implements Rule{
 			num = Integer.parseInt(value);
 		}
 		catch(Exception e){
+			addError(key, errors);
 			return false;
 		}
 		
@@ -22,8 +24,12 @@ public class PositiveRule implements Rule{
 			return true;
 		}
 				
-		errors.put(key, key + " must be positive");
+		addError(key, errors);
 		return false;
+	}
+
+	private String addError(String key, Map<String, String> errors) {
+		return errors.put(key, key + " must be a positive number");
 	}
 
 }

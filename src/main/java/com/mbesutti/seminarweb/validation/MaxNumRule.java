@@ -17,11 +17,9 @@ public class MaxNumRule implements Rule {
 		
 		int num;
 		try{
-			System.out.println("before a");
 			num = Integer.parseInt(value);
 		}
 		catch(Exception e){
-			System.out.println("after a");
 			return false;
 		}
 

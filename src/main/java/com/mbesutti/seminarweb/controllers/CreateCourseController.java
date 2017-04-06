@@ -19,7 +19,7 @@ public class CreateCourseController implements Controller {
 	}
 
 	public CreateCourseController() {
-		_errors = new HashMap<>();
+		_errors = new HashMap<String,String>();
 	}
 
 	@Override

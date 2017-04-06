@@ -9,7 +9,7 @@ public class HtmlTable implements HtmlElement{
 	private final List<String[]> _rows;
 	
 	public HtmlTable() {
-		_rows = new ArrayList<>();
+		_rows = new ArrayList<String[]>();
 	}
 	
 	public void setHeaders(String... columns) {
