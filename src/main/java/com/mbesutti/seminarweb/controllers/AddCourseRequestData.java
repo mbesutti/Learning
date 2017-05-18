@@ -44,7 +44,7 @@ public class AddCourseRequestData {
 	}
 
 	public AddCourseRequestData setName(String name) {
-		this.name = name;
+		this.name = name != null ? name : "";
 		return this;
 	}
 
@@ -53,7 +53,7 @@ public class AddCourseRequestData {
 	}
 
 	public AddCourseRequestData setDescription(String description) {
-		this.description = description;
+		this.description = description != null ? description : "";
 		return this;
 	}
 
@@ -62,7 +62,7 @@ public class AddCourseRequestData {
 	}
 
 	public AddCourseRequestData setDate(String date) {
-		this.date = date;
+		this.date = date != null ? date : "";
 		return this;
 	}
 
@@ -71,7 +71,7 @@ public class AddCourseRequestData {
 	}
 
 	public AddCourseRequestData setSeats(String seats) {
-		this.seats = seats;
+		this.seats = seats != null ? seats : "";
 		return this;
 	}
 
@@ -80,7 +80,7 @@ public class AddCourseRequestData {
 	}
 
 	public AddCourseRequestData setLocation(String location) {
-		this.location = location;
+		this.location = location != null ? location : "";
 		return this;
 	}
 
@@ -89,7 +89,7 @@ public class AddCourseRequestData {
 	}
 
 	public AddCourseRequestData setPartecipants(String partecipants) {
-		this.partecipants = partecipants;
+		this.partecipants = partecipants != null ? partecipants : "";
 		return this;
 	}
 

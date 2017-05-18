@@ -105,17 +105,19 @@ public class ValidationsTest {
 		boolean valid = new PositiveRule().validate(key, "-1", _errors);
 		
 		assertFalse(valid);
-		assertEquals(key+" must be positive", _errors.get(key));
+		assertEquals(key+" must be a positive number", _errors.get(key));
 	}
 	
 	@Test
 	public void multiRuleValid() {
 		String key = "field";
-		boolean valid = new MultiRule().add(new NotEmptyRule())
+		boolean valid = new MultiRule()
+						.add(new NotEmptyRule())
 				        .add(new PositiveRule())
 				        .add(new MaxLengthRule(3))
 				        .add(new MaxNumRule(999))
 				.validate(key, "123", _errors);
+		System.out.println(valid);
 		assertTrue(valid);
 		assertEquals(null, _errors.get(key));
 	}
@@ -130,7 +132,7 @@ public class ValidationsTest {
 				.validate(key, "-12", _errors);
 		
 		assertFalse(valid);
-		assertEquals(key+" must be positive", _errors.get(key));
+		assertEquals(key+" must be a positive number", _errors.get(key));
 	}
 	
 	@Test
@@ -143,6 +145,6 @@ public class ValidationsTest {
 				.validate(key, "-124", _errors);
 		
 		assertFalse(valid);
-		assertEquals(key+" must be positive, Value cannot have more than 3 characters", _errors.get(key));
+		assertEquals(key+" must be a positive number, Value cannot have more than 3 characters", _errors.get(key));
 	}
 }

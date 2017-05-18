@@ -3,6 +3,9 @@ package com.mbesutti.seminarweb.controllers;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import com.mbesutti.seminarweb.html.HtmlElement;
 import com.mbesutti.seminarweb.html.HtmlForm;
 import com.mbesutti.seminarweb.html.HtmlLink;
@@ -13,8 +16,7 @@ public class CreateCourseController implements Controller {
 	private final Map<String, String> _errors;
 	private AddCourseRequestData _addCourseRequestData;
 
-	public CreateCourseController(AddCourseRequestData addCourseRequestData, Map<String, String> errors) {
-		_addCourseRequestData = addCourseRequestData;
+	public CreateCourseController(Map<String, String> errors) {
 		_errors = errors;
 	}
 
@@ -23,7 +25,7 @@ public class CreateCourseController implements Controller {
 	}
 
 	@Override
-	public String build() {
+	public String build(HttpServletRequest req, HttpServletResponse res) {
 		HtmlPageBuilder builder = new HtmlPageBuilder(); 
 		HtmlForm form = new HtmlForm("/course/add");
 		form.addInput("Name", HtmlForm.TEXT, _addCourseRequestData==null?"course name":_addCourseRequestData.getName(), _errors.get("name"));

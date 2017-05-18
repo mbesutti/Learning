@@ -11,9 +11,12 @@ public class MultiRule implements Rule{
 
 	@Override
 	public boolean validate(String key, String value, Map<String, String> errors) {
+		if (rules.isEmpty()){
+			return true;
+		}
 		int i = 0;
 		String errorsValues = "";
-		boolean isValid = false;
+		boolean isValid = true;
 		for (Rule rule : rules) {
 			Map<String, String> ruleError = new HashMap<String,String>();
 			boolean valid = rule.validate(key, value, ruleError);

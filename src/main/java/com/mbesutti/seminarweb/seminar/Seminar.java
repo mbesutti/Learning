@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import com.mbesutti.seminarweb.printers.SeminarPrinter;
 
 public class Seminar {
-	private String location;
-	private int totalSeats;
-	private ArrayList<Enrollment> enrollments;
-	private Course course;
+	private final String location;
+	private final int totalSeats;
+	private final ArrayList<Enrollment> enrollments;
+	private final Course course;
 	
 	public Seminar(Course course, int totalSeats, String location) {
 		this.course = course;
@@ -23,6 +23,10 @@ public class Seminar {
 	
 	public int getSeatsLeft() {
 		return totalSeats - enrollments.size();
+	}
+	
+	public int getTotalSeats() {
+		return totalSeats;
 	}
 	
 	public ArrayList<Student> getStudentsList(){

@@ -1,5 +1,8 @@
 package com.mbesutti.seminarweb.controllers;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 public interface Controller {
-	public String build();
+	String build(HttpServletRequest aReq, HttpServletResponse aRes);
 }
