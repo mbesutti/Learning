@@ -1,20 +1,26 @@
 package com.mbesutti.seminarweb.seminar;
 
 public class Course {
-	private int number;
+	private String id;
 	private String name;
 	private String description;
 	private String date;
 	
-	public Course(int number, String name, String description, String date) {
-		this.number = number;
+	public Course(String id, String name, String description, String date) {
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.date = date;
+	}
+	
+	public Course(String name, String description, String date) {
+		this.id = null;
 		this.name = name;
 		this.description = description;
 		this.date = date;
 	}
 
-	public int getNumber() {
-		return number;
+	public Course() {
 	}
 
 	public String getName() {
@@ -27,5 +33,9 @@ public class Course {
 
 	public String getDate() {
 		return date;
+	}
+
+	public String getId() {
+		return id;
 	}
 }

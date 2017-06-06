@@ -14,7 +14,15 @@ public class HtmlForm implements HtmlElement {
 		
 	}
 	
-	public void addInput(String label, String type, String placeholder, String error) {
+	public void addInput(String label, String type, String placeholder) {
+		addInput(label, type, placeholder, "", null);
+	}
+	
+	public void addInput(String label, String type, String placeholder, String value) {
+		addInput(label, type, placeholder, value);
+	}
+	
+	public void addInput(String label, String type, String placeholder, String value, String error) {
 		boolean hasError = error!=null&&!error.isEmpty();
 		String formHasError = hasError?" has-error has-feedback":"";
 		String errorMessage = hasError?error:"";
@@ -22,7 +30,7 @@ public class HtmlForm implements HtmlElement {
 						"<label for='"+label+"' class='col-sm-2 control-label'>"+label+"</label>" +
 						"<div class='col-sm-10'>" +
 							"<input type='" + type + "' class='form-control' id='"+label+
-								"' name='"+label.toLowerCase()+"' placeholder='"+placeholder+"' value='"+placeholder+"'>"+
+								"' name='"+label.toLowerCase()+"' placeholder='"+placeholder+"' value='" + value + "'>"+
 							"<div class='col-xs-12 messageContainer'>"+errorMessage+"</div>" +
 						"</div>" +
 					"</div>");
@@ -45,9 +53,4 @@ public class HtmlForm implements HtmlElement {
 		result += "</form>";
 		return result;
 	}
-
-	public void addInput(String label, String type, String placeholder) {
-		addInput(label, type, placeholder, null);
-	}
-
 }

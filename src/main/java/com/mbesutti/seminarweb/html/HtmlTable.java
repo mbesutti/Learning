@@ -6,18 +6,27 @@ import java.util.List;
 public class HtmlTable implements HtmlElement{
 
 	private String[] _columns;
-	private final List<String[]> _rows;
+	private final List<List<HtmlElement>> _rows;
 	
 	public HtmlTable() {
-		_rows = new ArrayList<String[]>();
+		_rows = new ArrayList<List<HtmlElement>>();
 	}
 	
 	public void setHeaders(String... columns) {
 		_columns = columns;
 	}
 	
-	public void addRow(String... row){
-		_rows.add(row);
+	public void addRow(List<HtmlElement> cells){
+		_rows.add(cells);
+	}
+	
+	public void addRow(String... cells){
+		List<HtmlElement> htmlCells = new ArrayList<HtmlElement>();
+		for (String row : cells) {
+			HtmlSpan cell = new HtmlSpan(row);
+			htmlCells.add(cell);
+		}
+		_rows.add(htmlCells);
 	}
 
 	@Override
@@ -31,10 +40,10 @@ public class HtmlTable implements HtmlElement{
 		string +=			"</tr>"+
 						"</thead>"+
 						"<tbody>";
-		for (String[] row : _rows) {
+		for (List<HtmlElement> row : _rows) {
 			string += "<tr>";
-			for (String value : row) {
-				string+="<td>"+value+"</td>";
+			for (HtmlElement value : row) {
+				string+="<td>"+value.build()+"</td>";
 			}
 			string += "</tr>";
 		}

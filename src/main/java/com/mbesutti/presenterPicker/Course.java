@@ -69,7 +69,7 @@ public class Course {
 	}
 
 	private void prefill() throws IOException {
-		String[] presenters = {"manlio", "franco", "ale", "dario", "enrico", "mattia", "chicco", "pino", "gennaro", "massi", "vacca", "gabri", "stefano", "matteo", "valentino"};
+		String[] presenters = {"manlio", "franco", "ale", "dario", "enrico", "mattia", "chicco", "pino", "gennaro", "massi", "vacca", "stefano", "matteo", "valentino"};
 		add(presenters);
 	}
 

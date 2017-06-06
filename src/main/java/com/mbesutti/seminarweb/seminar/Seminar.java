@@ -1,12 +1,13 @@
 package com.mbesutti.seminarweb.seminar;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.mbesutti.seminarweb.printers.SeminarPrinter;
 
 public class Seminar {
-	private final String location;
-	private final int totalSeats;
+	private String location;
+	private int totalSeats = 0;
 	private final ArrayList<Enrollment> enrollments;
 	private final Course course;
 	
@@ -17,6 +18,11 @@ public class Seminar {
 		enrollments = new ArrayList<Enrollment>();
 	}
 	
+	public Seminar() {
+		enrollments = new ArrayList<Enrollment>();
+		course = new Course();
+	}
+
 	public void addPartecipant(Student student){
 		enrollments.add(new Enrollment(student));
 	}
@@ -29,10 +35,18 @@ public class Seminar {
 		return totalSeats;
 	}
 	
-	public ArrayList<Student> getStudentsList(){
+	public List<Student> getStudentsList(){
 		ArrayList<Student> students = new ArrayList<Student>();
 		for (Enrollment enrollment : enrollments) {
 			students.add(enrollment.student);
+		}
+		return students;
+	}
+	
+	public List<String> getStudentsNamesList(){
+		ArrayList<String> students = new ArrayList<String>();
+		for (Student enrollment : getStudentsList()) {
+			students.add(enrollment.getFullName());
 		}
 		return students;
 	}
