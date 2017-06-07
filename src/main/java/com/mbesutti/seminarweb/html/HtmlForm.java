@@ -19,7 +19,7 @@ public class HtmlForm implements HtmlElement {
 	}
 	
 	public void addInput(String label, String type, String placeholder, String value) {
-		addInput(label, type, placeholder, value);
+		addInput(label, type, placeholder, value, null);
 	}
 	
 	public void addInput(String label, String type, String placeholder, String value, String error) {

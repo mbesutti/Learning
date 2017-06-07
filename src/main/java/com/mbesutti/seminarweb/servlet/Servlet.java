@@ -11,11 +11,11 @@ import javax.sql.DataSource;
 
 import com.mbesutti.seminarweb.handler.RequestRouter;
 import com.mbesutti.seminarweb.views.AddCourseView;
-import com.mbesutti.seminarweb.views.CourseDetailsView;
 import com.mbesutti.seminarweb.views.CoursesListView;
 import com.mbesutti.seminarweb.views.CreateCourseView;
 import com.mbesutti.seminarweb.views.DeleteCourseView;
 import com.mbesutti.seminarweb.views.NotFoundView;
+import com.mbesutti.seminarweb.views.UpdateCourseView;
 
 @SuppressWarnings("serial")
 public class Servlet extends HttpServlet {
@@ -28,7 +28,8 @@ public class Servlet extends HttpServlet {
 		_requestRouter.add(new CreateCourseView(), "/course/create", "/course/create/");
 		_requestRouter.add(new CoursesListView(), "/course", "/", "^/a");
 		_requestRouter.add(new AddCourseView(), "/course/add");
-		_requestRouter.add(new CourseDetailsView(), "^/course/\\d$");
+		_requestRouter.add(new CreateCourseView(), "^/course/\\d$");
+		_requestRouter.add(new UpdateCourseView(), "^/course/update/\\d$");
 		_requestRouter.add(new DeleteCourseView(), "^/course/delete/\\d$");
 	}
 	

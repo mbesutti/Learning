@@ -10,7 +10,7 @@ import com.mbesutti.seminarweb.validation.MultiRule;
 import com.mbesutti.seminarweb.validation.NotEmptyRule;
 import com.mbesutti.seminarweb.validation.PositiveRule;
 
-public class AddCourseRequestData {
+public class CourseRequestData {
 	private String name;
 	private String description;
 	private String date;
@@ -43,7 +43,7 @@ public class AddCourseRequestData {
 		return name;
 	}
 
-	public AddCourseRequestData setName(String name) {
+	public CourseRequestData setName(String name) {
 		this.name = name != null ? name : "";
 		return this;
 	}
@@ -52,7 +52,7 @@ public class AddCourseRequestData {
 		return description;
 	}
 
-	public AddCourseRequestData setDescription(String description) {
+	public CourseRequestData setDescription(String description) {
 		this.description = description != null ? description : "";
 		return this;
 	}
@@ -61,7 +61,7 @@ public class AddCourseRequestData {
 		return date;
 	}
 
-	public AddCourseRequestData setDate(String date) {
+	public CourseRequestData setDate(String date) {
 		this.date = date != null ? date : "";
 		return this;
 	}
@@ -70,7 +70,7 @@ public class AddCourseRequestData {
 		return seats;
 	}
 
-	public AddCourseRequestData setSeats(String seats) {
+	public CourseRequestData setSeats(String seats) {
 		this.seats = seats != null ? seats : "";
 		return this;
 	}
@@ -79,7 +79,7 @@ public class AddCourseRequestData {
 		return location;
 	}
 
-	public AddCourseRequestData setLocation(String location) {
+	public CourseRequestData setLocation(String location) {
 		this.location = location != null ? location : "";
 		return this;
 	}
@@ -88,7 +88,7 @@ public class AddCourseRequestData {
 		return partecipants;
 	}
 
-	public AddCourseRequestData setPartecipants(String partecipants) {
+	public CourseRequestData setPartecipants(String partecipants) {
 		this.partecipants = partecipants != null ? partecipants : "";
 		return this;
 	}

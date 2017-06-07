@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.mbesutti.seminarweb.seminar.Course;
@@ -54,7 +55,15 @@ public class SeminarRepository {
 			String description = rs.getString("description");
 			String location = rs.getString("location");
 			int totalSeats = rs.getInt("totalSeats");
-			String start = rs.getString("start");
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+			Date startDate = null;
+			try {
+				startDate = dateFormat.parse(rs.getString("start"));
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+			SimpleDateFormat stringDateFormat = new SimpleDateFormat("dd.MM.yyyy");
+			String start = stringDateFormat.format(startDate);
 			seminar = new Seminar(new Course(courseId, name, description, start), totalSeats, location);
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -97,6 +106,25 @@ public class SeminarRepository {
 					+ ", " + seminar.getTotalSeats() + ""
 					+ ", '" + getFormattedDate(seminar) + "'"
 			+ ");";
+			preparedStatement = _connection.prepareStatement(query);
+			int executeQuery = preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	public void update(Seminar seminar) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		try {
+			String query = "update Course set"
+									+ " name = '" + seminar.getCourse().getName() + "'"
+									+ ", description = '" +  seminar.getCourse().getDescription() + "'"
+									+ ", location = '" + seminar.getLocation() + "'"
+									+ ", totalSeats = " + seminar.getTotalSeats() + ""
+									+ ", start = '" + getFormattedDate(seminar) + "'"
+						+ " WHERE id = "+seminar.getCourse().getId()
+			+ ";";
 			preparedStatement = _connection.prepareStatement(query);
 			int executeQuery = preparedStatement.executeUpdate();
 		} catch (SQLException e) {
